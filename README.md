@@ -8,7 +8,7 @@
 
 1.  git checkout devgit pull origin devgit checkout -b feature/update-readme
     
-2.  Gör en liten ändring i README.md (t.ex. lägg till en rad längst ner).
+2.  Gör en liten ändring i `README.md` (t.ex. lägg till en rad längst ner).
     
 3.  git push -u origin feature/update-readme
     
@@ -21,7 +21,26 @@
 
 1.  Skapa en fil .github/workflows/pr-check.yml.
     
-2.  name: PR Checkon: pull\_request: branches: \[ dev \]jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v3 - name: Set up Node.js uses: actions/setup-node@v3 with: node-version: 18 - run: npm install - run: npm test
+2.  klistra in följande kod:
+    ```yaml
+    name: PR Check
+
+    on:
+      pull_request:
+        branches: [ "dev" ]
+
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+          - name: Use Node.js
+            uses: actions/setup-node@v3
+            with:
+              node-version: '18'
+          - run: npm install
+          - run: npm test
+    ```
     
 3.  Committa och pusha workflow-filen till din branch och öppna en Pull Request.
     
