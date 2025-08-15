@@ -6,7 +6,9 @@
 
 **Skapa ett grundläggande Pull Request-flöde**
 
-1.  git checkout devgit pull origin devgit checkout -b feature/update-readme
+1.  git checkout dev
+    git pull origin dev
+    git checkout -b feature/update-readme
     
 2.  Gör en liten ändring i `README.md` (t.ex. lägg till en rad längst ner).
     
